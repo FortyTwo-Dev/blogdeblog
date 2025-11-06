@@ -30,6 +30,17 @@
                         >
                             Dashboard
                         </a>
+                        <form action="/logout" method="POST" class="flex flex-row justify-center items-center">
+                        @method("post")
+                        @csrf
+                        <button class="group">
+                            <svg class="stroke-white" width="29" height="31" viewBox="0 0 29 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.0872 27.125H5.04371C4.37491 27.125 3.73349 26.8528 3.26057 26.3684C2.78766 25.8839 2.52197 25.2268 2.52197 24.5417V6.45833C2.52197 5.77319 2.78766 5.11611 3.26057 4.63164C3.73349 4.14717 4.37491 3.875 5.04371 3.875H10.0872" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="transition-transform duration-300 ease-out group-hover:translate-x-[3px]" d="M18.9131 21.9582L25.2174 15.4998L18.9131 9.0415" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="transition-transform duration-300 ease-out group-hover:translate-x-[1px]" d="M25.2173 15.5H10.0869" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        </form>
                     @else
                         <a
                             href="{{ route('login') }}"
