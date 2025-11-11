@@ -9,7 +9,7 @@
 </head>
 <body> --}}
     <x-layouts.auth title="Login">
-        <form class="flex flex-col gap-4 p-8 items-center justify-center bg-tertiary" method="POST" action="{{ route('login.store') }}">
+        <form class="flex flex-col gap-4 p-8 items-center justify-center bg-tertiary rounded-card" method="POST" action="{{ route('login.store') }}">
             @csrf
             @method('post')
 
