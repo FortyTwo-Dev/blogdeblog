@@ -33,8 +33,8 @@
         </section>
         
         <section class="flex flex-col gap-2">
-            <x-ui.label id="password_confirmation" :required="true">password_confirmation</x-ui.label>
-            <x-ui.input variant="primary" id="password_confirmation" name="password_confirmation" type="password_confirmation" />
+            <x-ui.label id="password_confirmation" :required="true">Password Confirmation</x-ui.label>
+            <x-ui.input variant="primary" id="password_confirmation" name="password_confirmation" type="password" />
             @error('password_confirmation')
             <p class="text-sm text-color-error">{{ $message }}</p>
             @enderror
