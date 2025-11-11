@@ -3,16 +3,20 @@
 namespace App\Models;
 
 use App\Policies\BlogPolicy;
+use Database\Factories\BlogFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Attributes\UseFactory;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 #[UsePolicy(BlogPolicy::class)]
 class Blog extends Model
 {
-    use HasUuids;
+    use HasUuids, HasFactory;
 
     /**
      * The attributes that are mass assignable.

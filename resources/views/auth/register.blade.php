@@ -12,7 +12,7 @@
             <x-ui.label id="name" :required="true">Username</x-ui.label>
             <x-ui.input variant="primary" id="name" name="name" type="text" />
             @error('name')
-            <p class="text-sm text-color-error">{{ $message }}</p>
+            <p class="text-xs text-destructive">{{ $message }}</p>
             @enderror
         </section>
         
@@ -20,7 +20,7 @@
             <x-ui.label id="email" :required="true">Email</x-ui.label>
             <x-ui.input variant="primary" id="email" name="email" type="text" />
             @error('email')
-            <p class="text-sm text-color-error">{{ $message }}</p>
+            <p class="text-xs text-destructive">{{ $message }}</p>
             @enderror
         </section>
         
@@ -28,7 +28,7 @@
             <x-ui.label id="password" :required="true">Password</x-ui.label>
             <x-ui.input variant="primary" id="password" name="password" type="password" />
             @error('password')
-            <p class="text-sm text-color-error">{{ $message }}</p>
+            <p class="text-xs text-destructive">{{ $message }}</p>
             @enderror
         </section>
         
@@ -36,7 +36,7 @@
             <x-ui.label id="password_confirmation" :required="true">Password Confirmation</x-ui.label>
             <x-ui.input variant="primary" id="password_confirmation" name="password_confirmation" type="password" />
             @error('password_confirmation')
-            <p class="text-sm text-color-error">{{ $message }}</p>
+            <p class="text-xs text-destructive">{{ $message }}</p>
             @enderror
         </section>
         

@@ -46,15 +46,14 @@
 }
 
 :root {
-
     --black: oklch(11.376% 0.03943 263.678);
     --white: oklch(98.089% 0.0026 230.444);
     
     --black-foreground: var(--white);
     --white-foreground: var(--black);
 
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    --background: oklch(88.837% 0.0001 271.152);
+    --foreground: oklch(53.824% 0.00006 271.152);
 
     --primary: oklch(60.513% 0.05776 227.69);
     --primary-foreground: var(--white);

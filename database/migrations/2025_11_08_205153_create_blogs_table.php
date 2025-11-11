@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("title", 64);
             $table->string("description", 255);
             $table->string("image_path", 255);
-            $table->foreignUuid("user_id");
+            $table->foreignId("user_id");
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

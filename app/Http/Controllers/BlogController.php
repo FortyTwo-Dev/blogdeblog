@@ -27,8 +27,7 @@ class BlogController extends Controller
     {
         Gate::authorize('create', Blog::class);
 
-        // return dashboard.blog.create
-        return redirect('/');
+        return to_route('blog.create');
     }
 
     /**
