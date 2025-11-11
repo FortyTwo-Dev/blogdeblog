@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Blog;
 
+use App\Models\Blog;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBlogRequest extends FormRequest
@@ -11,7 +12,7 @@ class StoreBlogRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->can('create');
+        return $this->user()->can('create', Blog::class);
     }
 
     /**
@@ -24,7 +25,7 @@ class StoreBlogRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:64'],
             'description' => ['required', 'string', 'max:255'],
-            'image_blog' => ['required', 'file', 'max:10000', 'mimes:webp']
+            'image_blog' => ['required', 'image', 'max:10000']
         ];
     }
 }

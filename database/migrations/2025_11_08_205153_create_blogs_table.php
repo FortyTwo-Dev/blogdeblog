@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string("slug", 255);
+            $table->string("slug", 255)->unique();
             $table->string("title", 64);
             $table->string("description", 255);
             $table->string("image_path", 255);

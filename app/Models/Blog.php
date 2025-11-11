@@ -12,11 +12,28 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\UseFactory;
 use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 #[UsePolicy(BlogPolicy::class)]
 class Blog extends Model
 {
-    use HasUuids, HasFactory;
+    use HasUuids, HasFactory, SoftDeletes;
+
+    // public function resolveRouteBinding($value, $field = null)
+    // {
+    //     $routeName = request()->route()->getName();
+
+    //     dd($routeName);
+
+    //     if ($routeName === 'blog.show') {
+    //         return $this->where('slug', $value)->firstOrFail();
+    //     }
+
+    //     return parent::resolveRouteBinding($value, $field);
+    // }
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -44,5 +61,13 @@ class Blog extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function imageUrl()
+    {
+        if (!$this->image_path) {
+            return false;
+        }
+        return Storage::disk('public')->url($this->image_path);
     }
 }

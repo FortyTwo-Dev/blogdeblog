@@ -16,20 +16,21 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        $blogs = Blog::all(['title','description', 'id', 'image_path']);
+        Gate::authorize('viewAny', Blog::class);
+        $blogs = Blog::all(['title', 'slug', 'description', 'id', 'image_path']);
         return view('blog.index', compact('blogs'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         Gate::authorize('create', Blog::class);
 
-        return to_route('blog.create');
+        return view('blog.create');
     }
 
     /**
@@ -52,17 +53,17 @@ class BlogController extends Controller
             'image_path' => $image_path
         ]);
 
-        // Store
-        // return dashboard.blog
-        // return to_route('')->with('success', 'Formation créée avec succès.');
+        return to_route('dashboard.index')->with('success', 'Blog créé avec succès.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id): View
+    public function show(string $slug): View
     {
-        $blog = Blog::findOrFail($id);
+        // $blog = Blog::findOrFail($blog->id);
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        Gate::authorize('view', $blog);
         $talks = $blog->talks()->get(['title','description', 'id']);
         return view('blog.show', compact('blog','talks'));
     }
@@ -70,7 +71,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Blog $blog)
     {
         //
     }

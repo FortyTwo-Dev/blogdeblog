@@ -9,11 +9,20 @@
 </head>
 <body class="light-orange">
     <header class="flex items-center justify-between px-6 py-4">
-        <x-icon.books class="stroke-2 size-12 stroke-primary"/>
+        <div class="text-2xl font-semibold inline-flex items-center gap-2">
+            <x-icon.books class="stroke-2 size-12 stroke-primary"/>
+            <h1>BlogdeBlog</h1>
+        </div>
         <nav class="flex items-center gap-4">
             <x-ui.input variant="primary" id="search" name="search" type="search" placeholder="Rechercher..."/>
+            @auth
+            <x-ui.link variant="ghost" :url="route('dashboard.index')">Dashboard</x-ui.link>
+            <x-ui.link variant="primary" :url="route('register')">My Account</x-ui.link> 
+            @endauth
+            @guest                
             <x-ui.link variant="ghost" :url="route('login.store')">Log in</x-ui.link>
             <x-ui.link variant="primary" :url="route('register')">Sign up</x-ui.link>
+            @endguest
         </nav>
     </header>
     <section class="w-screen h-screen flex justify-center bg-primary">

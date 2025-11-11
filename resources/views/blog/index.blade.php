@@ -14,7 +14,7 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, necessitatibus. Vero nulla labore eveniet vitae officia ipsa excepturi, accusantium reiciendis corporis deserunt, sit itaque nobis optio omnis repellat doloribus laborum!z</p>
         </a> --}}
         @foreach ($blogs as $blog)
-            <a href="{{ route('blog.show', $blog->id) }}" class="bg-secondary text-secondary-foreground p-8 mb-4 h-50">
+            <a href="{{ route('blog.show', $blog->slug) }}" class="bg-secondary text-secondary-foreground p-8 mb-4 h-50">
             <h2>{{ $blog->title }}</h2>
             <p>{{ $blog->description }}</p>
         </a>
