@@ -1,5 +1,5 @@
 <x-layouts.auth title="Register">
-    <form class="flex flex-col gap-4 p-8 items-center justify-center bg-tertiary" method="POST" action="{{ route('login.store') }}">
+    <form class="flex flex-col gap-4 p-8 items-center justify-center bg-tertiary" method="POST" action="{{ route('register.store') }}">
         @csrf
         @method('post')
 
