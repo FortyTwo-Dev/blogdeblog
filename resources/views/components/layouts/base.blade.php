@@ -16,7 +16,7 @@
         <nav class="flex items-center gap-4">
             <x-ui.input variant="primary" id="search" name="search" type="search" placeholder="Rechercher..."/>
             @auth
-            <x-ui.link variant="ghost" :url="route('dashboard.index')">Dashboard</x-ui.link>
+            <x-ui.link variant="ghost" :url="route('dashboard.blog.index')">Dashboard</x-ui.link>
             <x-ui.link variant="primary" :url="route('register')">My Account</x-ui.link> 
             @endauth
             @guest                

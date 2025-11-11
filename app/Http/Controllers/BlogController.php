@@ -30,7 +30,7 @@ class BlogController extends Controller
     {
         Gate::authorize('create', Blog::class);
 
-        return view('blog.create');
+        return view('dashboard.blog.create');
     }
 
     /**
@@ -38,7 +38,6 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request): RedirectResponse
     {
-        //
         Gate::authorize('create', Blog::class);
 
         $user = Auth::user();
@@ -53,7 +52,7 @@ class BlogController extends Controller
             'image_path' => $image_path
         ]);
 
-        return to_route('dashboard.index')->with('success', 'Blog créé avec succès.');
+        return to_route('dashboard.blog.index')->with('success', 'Blog créé avec succès.');
     }
 
     /**

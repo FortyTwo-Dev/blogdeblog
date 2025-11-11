@@ -6,9 +6,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard/', [App\Http\Controllers\DashboardController::class, 'indexblog'])->middleware('auth')->name('dashboard.index');
+Route::get('dashboard/', [App\Http\Controllers\DashboardController::class, 'indexblog'])->middleware('auth')->name('dashboard.blog.index');
+
 Route::get('dashboard/blog/{blog}', [App\Http\Controllers\DashboardController::class, 'showblog'])->middleware('auth')->name('dashboard.blog.show');
-Route::get('dashboard/blog/create', [App\Http\Controllers\BlogController::class, 'create'])->middleware('auth')->name('blog.create');
+
+Route::get('dashboard/blog/create', [App\Http\Controllers\BlogController::class, 'create'])->middleware('auth')->name('dashboard.blog.create');
+
 Route::post('dashboard/blog', [App\Http\Controllers\BlogController::class, 'store'])->middleware('auth')->name('blog.store');
 // Route::get('dashboard/blog/{blog}/update', [App\Http\Controllers\BlogController::class, 'update'])->can('update', 'blog');
 

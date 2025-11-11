@@ -4,7 +4,7 @@
 <main class="w-full h-full bg-background text-foreground flex flex-col gap-4 p-4 items-center justify-center overflow-hidden">
 
     <section class="container inline-flex justify-end">
-        <x-ui.link variant="tertiary" :url="route('dashboard.index')">Back</x-ui.link>
+        <x-ui.link variant="tertiary" :url="route('dashboard.blog.index')">Back</x-ui.link>
     </section>
 
     <section class="container">

@@ -20,7 +20,7 @@
         </div>
         @foreach ($talks as $talk)
         <a class="bg-secondary text-secondary-foreground p-8 mb-4 h-50">
-            <h2>{{ $talk->title }}</h2>
+            <h2 class="font-semibold text-2xl">{{ $talk->title }}</h2>
             <p>{{ $talk->description }}</p>
         </a>
         @endforeach

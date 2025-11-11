@@ -4,7 +4,7 @@
 <main class="w-full h-full bg-background text-foreground flex flex-col gap-4 p-4 items-center justify-center overflow-hidden">
 
     <section class="container inline-flex justify-end gap-2">
-        <x-ui.link variant="secondary" :url="route('dashboard.index')">Back</x-ui.link>
+        <x-ui.link variant="secondary" :url="route('dashboard.blog.index')">Back</x-ui.link>
         <x-ui.link variant="secondary" url="">Modify</x-ui.link>
         <x-ui.button variant="warning" type="submit">Disable</x-ui.button>
     </section>

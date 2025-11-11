@@ -4,7 +4,7 @@
 <main class="w-full h-full bg-background text-foreground flex flex-col gap-4 p-4 items-center justify-center overflow-hidden">
 
     <section class="container inline-flex justify-end">
-        <x-ui.link variant="secondary" :url="route('blog.create')">Create</x-ui.link>
+        <x-ui.link variant="secondary" :url="route('dashboard.blog.create')">Create</x-ui.link>
     </section>
 
     @foreach ($blogs as $blog)

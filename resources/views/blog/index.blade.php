@@ -15,7 +15,7 @@
         </a> --}}
         @foreach ($blogs as $blog)
             <a href="{{ route('blog.show', $blog->slug) }}" class="bg-secondary text-secondary-foreground p-8 mb-4 h-50">
-            <h2>{{ $blog->title }}</h2>
+            <h2 class="font-semibold text-2xl">{{ $blog->title }}</h2>
             <p>{{ $blog->description }}</p>
         </a>
         @endforeach
