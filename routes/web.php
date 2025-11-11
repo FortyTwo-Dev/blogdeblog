@@ -8,3 +8,9 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard/blog/create', [App\Http\Controllers\BlogController::class, 'create'])->can('create', Blog::class);
+
+Route::get('/blog/show', function () {
+    return view('blog.show');
+});
+
+
