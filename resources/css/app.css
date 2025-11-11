@@ -11,9 +11,8 @@
     --font-sans: 'Inter', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
-    --radius-component: var(--radius);
-    --radius-md: calc(var(--radius) + 2px);
-    --radius-lg: calc(var(--radius) + 4px);
+    --radius-component: var(--rounded-component);
+    --radius-card: var(--rounded-card);
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -77,5 +76,6 @@
     --info: oklch(76.9% 0.188 70.08);
     --info-foreground: oklch(0.205 0 0);
 
-    --radius: 0rem;
+    --rounded-component: 0rem;
+    --rounded-card: 0rem;
 }
