@@ -1,1 +1,1 @@
-<input {{ $attributes->merge(['class' => 'input input-'.$variant]) }} id="{{ $id }}" type="{{ $type }}" placeholder="{{ $placeholder }}" @if($variant === 'disable') disabled @endif/>
+<input {{ $attributes->merge(['class' => 'input input-'.$variant]) }} id="{{ $id }}" name="{{ $name }}" type="{{ $type }}" placeholder="{{ $placeholder }}" @if($variant === 'disable') disabled @endif/>

@@ -1,0 +1,9 @@
+@layer components {
+  .label {
+    @apply text-base;
+
+    &.label-required span {
+        @apply text-destructive;
+    }
+  }
+}
