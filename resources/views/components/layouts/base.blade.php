@@ -12,8 +12,8 @@
         <x-icon.books class="stroke-2 size-12 stroke-primary"/>
         <nav class="flex items-center gap-4">
             <x-ui.input variant="primary" id="search" name="search" type="search" placeholder="Rechercher..."/>
-            <a href="{{ route('login.store') }}" class="px-4 py-2 text-gray-700 hover:text-primary font-medium">Log in</a>
-            <a href="{{ route('register') }}" class="px-4 py-2 bg-primary text-white hover:bg-opacity-90 font-medium">Sign up</a>
+            <x-ui.link variant="ghost" :url="route('login.store')">Log in</x-ui.link>
+            <x-ui.link variant="primary" :url="route('register')">Sign up</x-ui.link>
         </nav>
     </header>
     <section class="w-screen h-screen flex justify-center bg-primary">
@@ -24,3 +24,4 @@
     </footer>
 </body>
 </html>
+

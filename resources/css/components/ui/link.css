@@ -1,0 +1,61 @@
+@layer components {
+  .link {
+    @apply underline text-base font-medium py-2.5 px-4 gap-4 inline-flex items-center justify-center rounded-component;
+
+    &.link-small {
+      @apply h-8;
+    }
+  
+    &.link-primary {
+      @apply bg-primary text-primary-foreground;
+    }
+  
+    &.link-secondary {
+      @apply bg-secondary text-secondary-foreground;
+    }
+  
+    &.link-tertiary {
+      @apply bg-tertiary text-tertiary-foreground;
+    }
+  
+    &.link-success {
+      @apply bg-success text-success-foreground;
+    }
+  
+    &.link-warning {
+      @apply bg-warning text-warning-foreground;
+    }
+  
+    &.link-destructive {
+      @apply bg-destructive text-destructive-foreground;
+    }
+  
+    &.link-info {
+      @apply bg-info text-info-foreground;
+    }
+
+    &.link-ghost {
+      @apply bg-transparent hover:bg-primary text-foreground hover:text-primary-foreground;
+    }
+  
+    &.link-disable {
+      @apply bg-tertiary text-tertiary-foreground opacity-50 cursor-not-allowed;
+    }
+  
+    &:not(.link-disable) {
+      @apply cursor-pointer;
+  
+      &:active {
+        @apply translate-y-0.25 transition-transform;
+      }
+  
+      &:hover {
+        @apply opacity-85;
+      }
+    }
+  }
+}
+
+.link-icon {
+  @apply size-6 stroke-2;
+}
