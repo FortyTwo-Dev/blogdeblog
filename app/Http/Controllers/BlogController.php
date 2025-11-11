@@ -18,7 +18,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        // return view(index)
+        $blogs = Blog::all(['title','description', 'id', 'image_path']);
+        return view('blog.index', compact('blogs'));
     }
 
     /**
@@ -59,9 +60,11 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id):View
+    public function show(string $id): View
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $talks = $blog->talks()->get(['title','description', 'id']);
+        return view('blog.show', compact('blog','talks'));
     }
 
     /**
