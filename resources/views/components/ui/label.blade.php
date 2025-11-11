@@ -1,0 +1,1 @@
+<label {{ $attributes->merge(['class' => 'label', $required ? 'laber-require': '']) }} :for="$id" @if($required) required @endif>{{ $slot }} @if($required) <span>*</span> @endif </label>

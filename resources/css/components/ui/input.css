@@ -1,0 +1,73 @@
+@layer components {
+  .input {
+    @apply text-secondary h-11 px-4 inline-flex items-center justify-center gap-2 rounded-component box-border border-2 outline-none focus:ring-2;
+
+    &:not(input) {
+      @apply stroke-[1.5px] stroke-secondary;
+    }
+
+    &.input-primary {
+      @apply ring-primary border-primary focus:outline-primary;
+    }
+
+    &.input-secondary {
+      @apply ring-secondary border-secondary focus:outline-secondary;
+    }
+
+    &.input-tertiary {
+      @apply ring-tertiary border-tertiary focus:outline-tertiary;
+    }
+
+    &.input-success {
+      @apply ring-success border-success focus:outline-success;
+    }
+
+    &.input-warning {
+      @apply ring-warning border-warning focus:outline-warning;
+    }
+
+    &.input-destructive {
+      @apply ring-destructive border-destructive focus:outline-destructive;
+    }
+
+    &.input-info {
+      @apply ring-info border-info focus:outline-info;
+    }
+
+    &.input-disable {
+      @apply ring-tertiary border-tertiary opacity-50 cursor-not-allowed;
+    }
+  }
+
+  .input-icon-left {
+    @apply relative items-center;
+
+    & input {
+      @apply pl-10;
+    }
+
+    & span {
+      @apply absolute inset-y-0 flex items-center justify-center px-2;
+
+      & svg {
+        @apply size-6 stroke-2 stroke-secondary;
+      }
+    }
+  }
+
+  .input-icon-right {
+    @apply relative items-center;
+
+    & input {
+      @apply pr-10;
+    }
+
+    & span {
+      @apply absolute end-0 inset-y-0 flex items-center justify-center px-2;
+
+      & svg {
+        @apply size-6 stroke-2 stroke-secondary;
+      }
+    }
+  }
+}

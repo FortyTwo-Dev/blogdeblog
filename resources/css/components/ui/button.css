@@ -1,0 +1,61 @@
+@layer components {
+  .button {
+    @apply text-base font-medium py-2.5 px-4 gap-4 inline-flex items-center justify-center rounded-component;
+
+    &.button-small {
+      @apply h-8;
+    }
+  
+    &.button-primary {
+      @apply bg-primary text-primary-foreground;
+    }
+  
+    &.button-secondary {
+      @apply bg-secondary text-secondary-foreground;
+    }
+  
+    &.button-tertiary {
+      @apply bg-tertiary text-tertiary-foreground;
+    }
+  
+    &.button-success {
+      @apply bg-success text-success-foreground;
+    }
+  
+    &.button-warning {
+      @apply bg-warning text-warning-foreground;
+    }
+  
+    &.button-destructive {
+      @apply bg-destructive text-destructive-foreground;
+    }
+  
+    &.button-info {
+      @apply bg-info text-info-foreground;
+    }
+
+    &.button-ghost {
+      @apply bg-transparent hover:bg-primary text-foreground hover:text-primary-foreground;
+    }
+  
+    &.button-disable {
+      @apply bg-tertiary text-tertiary-foreground opacity-50 cursor-not-allowed;
+    }
+  
+    &:not(.button-disable) {
+      @apply cursor-pointer;
+  
+      &:active {
+        @apply translate-y-0.25 transition-transform;
+      }
+  
+      &:hover {
+        @apply opacity-85;
+      }
+    }
+  }
+}
+
+.button-icon {
+  @apply size-6 stroke-2;
+}
