@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("slug", 255);
             $table->string("title", 255);
             $table->string("description", 255);
+            $table->text("content");
             $table->string("image_path", 255);
             $table->foreignUuid("blog_id");
             $table->softDeletes('deleted_at');
