@@ -25,6 +25,7 @@
         </a>
         @endforeach
     </section>
+    
     <section>
         
     </section>
