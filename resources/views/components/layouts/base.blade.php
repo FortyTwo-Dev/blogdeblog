@@ -25,7 +25,7 @@
             @endguest
         </nav>
     </header>
-    <section class="w-screen h-screen flex justify-center bg-primary">
+    <section class="w-screen h-full flex justify-center bg-primary">
         {{ $slot }}
     </section>
     <footer>
