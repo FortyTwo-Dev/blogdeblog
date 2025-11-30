@@ -5,7 +5,7 @@ namespace App\Http\Requests\Blog;
 use App\Models\Blog;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBlogRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

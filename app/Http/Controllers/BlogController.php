@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Blog\StoreBlogRequest;
+use App\Http\Requests\Blog\StoreRequest;
+use App\Http\Requests\Blog\UpdateRequest;
 use App\Models\Blog;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -36,7 +36,7 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBlogRequest $request): RedirectResponse
+    public function store(StoreRequest $request): RedirectResponse
     {
         Gate::authorize('create', Blog::class);
 
@@ -63,6 +63,7 @@ class BlogController extends Controller
         // $blog = Blog::findOrFail($blog->id);
         $blog = Blog::where('slug', $slug)->firstOrFail();
         Gate::authorize('view', $blog);
+
         $talks = $blog->talks()->get(['title','description', 'id']);
         return view('blog.show', compact('blog','talks'));
     }
@@ -72,22 +73,51 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        Gate::authorize('update', $blog);
+
+        return view('dashboard.blog.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, Blog $blog)
     {
-        //
+        Gate::authorize('update', $blog);
+
+        $data = [
+            ...$request->validated(),
+            'slug' => Str::slug($request->title),
+        ];
+
+        if ($request->hasFile('image_blog')) {
+            $image_path = $request->file('image_blog')->store('image_blog', 'public');
+            $data['image_path'] = $image_path;
+        }
+
+        $blog->update($data);
+
+        return to_route('dashboard.blog.index')->with('success', 'Blog modifié avec succès.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Blog $blog)
     {
-        //
+        Gate::authorize('delete', $blog);
+
+        $blog->delete();
+
+        return to_route('dashboard.blog.index')->with('success', 'Blog supprimé avec succès.');
+    }
+
+    public function restore(Blog $blog) {
+
+        Gate::authorize('restore', $blog);
+        
+        $blog->restore();
+
+        return to_route('dashboard.blog.index')->with('success', 'Blog restoré avec succès.');
     }
 }

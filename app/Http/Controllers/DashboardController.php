@@ -11,7 +11,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $blogs = $user->blogs()->get(['id', 'title']);
+        $blogs = $user->blogs()->withTrashed()->get(['id', 'title', 'deleted_at']);
 
         return view('dashboard.blog.index', compact('blogs'));
     }

@@ -45,7 +45,6 @@ class Blog extends Model
         'title',
         'description',
         'image_path',
-        'deleted_at',
     ];
 
     public function categories(): BelongsToMany
