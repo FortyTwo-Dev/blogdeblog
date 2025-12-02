@@ -26,7 +26,7 @@
     </header>
     {{ $slot }}
     <footer>
-
+        
     </footer>
 </body>
 </html>

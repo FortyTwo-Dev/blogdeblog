@@ -19,17 +19,17 @@
             <x-ui.link variant="ghost" :url="route('dashboard.blog.index')">Dashboard</x-ui.link>
             <x-ui.link variant="primary" :url="route('register')">My Account</x-ui.link> 
             @endauth
-            @guest                
+            @guest
             <x-ui.link variant="ghost" :url="route('login.store')">Log in</x-ui.link>
             <x-ui.link variant="primary" :url="route('register')">Sign up</x-ui.link>
             @endguest
         </nav>
     </header>
-    <section class="w-screen h-screen flex justify-center bg-primary">
+    <main class="min-w-screen min-h-screen flex flex-col items-center justify-center bg-primary">
         {{ $slot }}
-    </section>
-    <footer>
-
+    </main>
+    <footer class="w-screen flex items-center justify-center px-6 py-4 bg-white">
+        <p>Blogdeblog by <a href="https://github.com/FortyTwo-Dev" class="underline">Fortytwo-Dev</a> and <a href="https://github.com/0jikuji0" class="underline">jikuji</a></p>
     </footer>
 </body>
 </html>
