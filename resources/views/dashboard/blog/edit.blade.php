@@ -8,8 +8,7 @@
     </section>
 
     <section class="container">
-
-        <form action="{{ route('blog.update', $blog) }}" method="POST" class="flex flex-col gap-8" enctype="multipart/form-data">
+        <form action="{{ route('dashboard.blog.update', $blog) }}" method="POST" class="flex flex-col gap-8" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <section class="flex flex-col gap-2">

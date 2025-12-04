@@ -6,15 +6,15 @@
     <section class="container inline-flex justify-end gap-2">
         <x-ui.link variant="secondary" :url="route('dashboard.blog.index')">Back</x-ui.link>
         <x-ui.link variant="secondary" :url="route('dashboard.blog.edit', $blog)">Modify</x-ui.link>
-        @if (!$blog->trashed())                    
-            <form action="{{ route('blog.destroy', $blog) }}" method="POST">
+        @if (!$blog->trashed())
+            <form action="{{ route('dashboard.blog.destroy', $blog) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                
+
                 <x-ui.button variant="warning" type="submit">Disable</x-ui.button>
             </form>
             @else
-            <form action="{{ route('blog.restore', $blog) }}" method="POST">
+            <form action="{{ route('dashboard.blog.restore', $blog) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <x-ui.button variant="success" type="submit">Enable</x-ui.button>
@@ -40,7 +40,7 @@
                 <form action="" method="POST">
                     @csrf
                     @method('POST')
-    
+
                     <x-ui.button variant="warning" type="submit">Disable</x-ui.button>
                 </form>
             </div>
