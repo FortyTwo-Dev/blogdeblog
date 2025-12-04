@@ -40,4 +40,12 @@ class Talk extends Model
     {
         return $this->belongsTo(Blog::class, 'blog_id', 'id');
     }
+        
+    public function imageUrl()
+    {
+        if (!$this->image_path) {
+            return false;
+        }
+        return Storage::disk('public')->url($this->image_path);
+    }
 }
