@@ -9,7 +9,7 @@
 
     <section class="container">
 
-        <form action="{{ route('blog.store') }}" method="POST" class="flex flex-col gap-8" enctype="multipart/form-data">
+        <form action="{{ route('dashboard.blog.store') }}" method="POST" class="flex flex-col gap-8" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <section class="flex flex-col gap-2">
