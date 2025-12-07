@@ -10,7 +10,7 @@
     <section class="flex flex-col mt-2 p-2 w-full max-w-7xl">
         @foreach ($blogs as $blog)
             <a href="{{ route('blog.show', $blog->slug) }}" x-data="{ hovered: false }" @mouseenter="hovered = true"
-                @mouseleave="hovered = false" class="mb-4 h-50 relative overflow-hidden rounded-lg group cursor-pointer">
+                @mouseleave="hovered = false" class="mb-4 h-50 relative overflow-hidden group cursor-pointer">
                 <img src="{{ $blog->imageUrl() }}" alt="{{ $blog->title }}"
                     class="w-full h-full object-cover absolute inset-0 transition-transform duration-300"
                     :class="hovered ? 'scale-110' : 'scale-100'">
