@@ -96,7 +96,7 @@ class BlogController extends Controller
         $blog = Blog::where('slug', $slug)->firstOrFail();
         Gate::authorize('view', $blog);
 
-        $talks = $blog->talks()->get(['title', 'description', 'content', 'id']);
+        $talks = $blog->talks()->get(['title', 'description', 'content', 'image_path', 'id']);
         return view('blog.show', compact('blog','talks'));
     }
 
