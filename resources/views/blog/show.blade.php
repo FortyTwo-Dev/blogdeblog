@@ -34,7 +34,7 @@
         </div>
         @if ($talks->count() > 5)
         @foreach ($talks as $talk)
-            <a class="bg-secondary text-secondary-foreground p-8 mb-3 h-50 overflow-hidden">
+            <a class="bg-secondary text-secondary-foreground p-8 mb-3 h-50 hover:h-fit overflow-hidden">
                 <h2 class="font-semibold text-2xl">{{ $talk->title }}</h2>
                 <p>{{ $talk->description }}</p>
                 <p class="mt-4 whitespace-pre-line text-base/7">{{ $talk->content }}</p>
