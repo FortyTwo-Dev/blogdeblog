@@ -24,6 +24,19 @@ class BlogController extends Controller
     }
 
     /**
+     * Search blogs
+     */
+    public function search(\Illuminate\Http\Request $request): View
+    {
+        Gate::authorize('viewAny', Blog::class);
+        $query = $request->get('search', '');
+        $blogs = Blog::where('title', 'like', "%{$query}%")
+                     ->orWhere('description', 'like', "%{$query}%")
+                     ->get(['title', 'slug', 'description', 'id', 'image_path']);
+        return view('blog.index', compact('blogs'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create(): View

@@ -34,6 +34,7 @@ Route::prefix('dashboard/')->name('dashboard.')->middleware('auth')->group(funct
 });
 
 Route::prefix('blog/')->name('blog.')->group(function () {
+    Route::get('search', [App\Http\Controllers\BlogController::class, 'search'])->name('search');
     Route::get('{blog:slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('show');
     Route::get('', [App\Http\Controllers\BlogController::class, 'index'])->name('index');
 

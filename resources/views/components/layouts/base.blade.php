@@ -14,7 +14,9 @@
             <h1>BlogdeBlog</h1>
         </div>
         <nav class="flex items-center gap-4">
-            <x-ui.input variant="primary" id="search" name="search" type="search" placeholder="Rechercher..."/>
+            <form action="{{ route('blog.search') }}" method="GET">
+                <x-ui.input variant="primary" id="search" name="search" type="search" placeholder="Rechercher..." value="{{ request('search', '') }}"/>
+            </form>
             @auth
             <x-ui.link variant="ghost" :url="route('dashboard.blog.index')">Dashboard</x-ui.link>
             <x-ui.link variant="primary" :url="route('register')">My Account</x-ui.link> 
