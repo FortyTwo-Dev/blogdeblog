@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="{{ $theme ?? "base" }}" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +7,15 @@
     <title>BlogdeBlog - {{ $title }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="light-orange">
-    <header class="flex items-center justify-between px-6 py-4">
+<body>
+    <header class="bg-background text-foreground flex items-center justify-between px-6 py-4">
         <div class="text-2xl font-semibold inline-flex items-center gap-2">
             <x-icon.books class="stroke-2 size-12 stroke-primary"/>
             <h1>BlogdeBlog</h1>
         </div>
         <nav class="flex items-center gap-4">
             <form action="{{ route('blog.search') }}" method="GET">
-                <x-ui.input variant="primary" id="search" name="search" type="search" placeholder="Rechercher..." value="{{ request('search', '') }}"/>
+                <x-ui.input variant="primary" id="search" name="search" type="search" placeholder="Research blog..." value="{{ request('search', '') }}"/>
             </form>
             @auth
             <x-ui.link variant="ghost" :url="route('dashboard.blog.index')">Dashboard</x-ui.link>
@@ -30,7 +30,7 @@
     <main class="min-w-screen min-h-screen flex flex-col items-center justify-center bg-primary">
         {{ $slot }}
     </main>
-    <footer class="w-screen flex items-center justify-center px-6 py-4 bg-white">
+    <footer class="bg-background text-foreground w-screen flex items-center justify-center px-6 py-4">
         <p>Blogdeblog by <a href="https://github.com/FortyTwo-Dev" class="underline">Fortytwo-Dev</a> and <a href="https://github.com/0jikuji0" class="underline">jikuji</a></p>
     </footer>
 </body>

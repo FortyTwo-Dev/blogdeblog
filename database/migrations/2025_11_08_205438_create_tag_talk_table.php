@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tag_talk', function (Blueprint $table) {
-            $table->foreignUuid("tag_id");
-            $table->foreignUuid("talk_id");
+            $table->uuid('tag_id')->require();
+            $table->uuid('talk_id')->require();
+            $table->foreign("tag_id")->references('id')->on('tags')->onDelete('cascade');
+            $table->foreign("talk_id")->references('id')->on('talks')->onDelete('cascade');
             $table->timestamps();
         });
     }

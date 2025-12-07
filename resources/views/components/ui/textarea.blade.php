@@ -1,0 +1,1 @@
+<textarea {{ $attributes->merge(['class' => 'h-auto p-2 input input-'.$variant]) }} placeholder="{{ $placeholder }}" name="{{ $name }}" id="{{ $id }}" cols="30" rows="10" @if($variant === 'disable') disabled @endif>{{$slot}}</textarea>

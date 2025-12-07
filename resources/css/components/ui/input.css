@@ -1,6 +1,6 @@
 @layer components {
   .input {
-    @apply text-secondary h-11 px-4 inline-flex items-center justify-center gap-2 rounded-component box-border border-2 outline-none focus:ring-2;
+    @apply text-foreground h-11 px-4 inline-flex items-center justify-center gap-2 rounded-component box-border border-2 outline-none focus:ring-2;
 
     &:not(input) {
       @apply stroke-[1.5px] stroke-secondary;

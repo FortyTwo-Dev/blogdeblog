@@ -37,7 +37,7 @@
 
     <section class="container inline-flex justify-between items-center gap-2">
         <h2 class="text-2xl text-secondary font-semibold">Talk</h2>
-        <x-ui.link variant="secondary" :url="route('dashboard.blog.index')">Add</x-ui.link>
+        <x-ui.link variant="secondary" :url="route('dashboard.blog.talk.create', $blog)">Add</x-ui.link>
     </section>
 
     @foreach ($talks as $talk)
@@ -45,6 +45,7 @@
             <h1 class="font-semibold">{{$talk->title}}</h1>
             <div class="inline-flex gap-2">
                 <x-ui.link variant="secondary" url="">See</x-ui.link>
+                <x-ui.link variant="secondary" :url="route('dashboard.blog.talk.edit', ['blog' => $blog, 'talk' => $talk])">Modify</x-ui.link>
                 <form action="" method="POST">
                     @csrf
                     @method('POST')

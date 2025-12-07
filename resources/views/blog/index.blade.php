@@ -10,11 +10,14 @@
     <section class="flex flex-col mt-2 p-2 w-full max-w-7xl">
         @foreach ($blogs as $blog)
             <a href="{{ route('blog.show', $blog->slug) }}" x-data="{ hovered: false }" @mouseenter="hovered = true"
-                @mouseleave="hovered = false" class="mb-4 h-50 relative overflow-hidden group cursor-pointer">
+                @mouseleave="hovered = false" class="mb-4 relative overflow-hidden group cursor-pointer"
+                :class="hovered ? 'h-84' : 'h-50'">
+                @if($blog->image_path != "empty")
                 <img src="{{ $blog->imageUrl() }}" alt="{{ $blog->title }}"
                     class="w-full h-full object-cover absolute inset-0 transition-transform duration-300"
                     :class="hovered ? 'scale-110' : 'scale-100'">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8 transition-opacity duration-300"
+                @endif
+                <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8 transition-opacity duration-300"
                     :class="hovered ? 'opacity-100' : 'opacity-80'">
                     <h2 class="font-semibold text-2xl text-secondary-foreground transform transition-transform duration-300"
                         :class="hovered ? 'translate-y-0' : 'translate-y-2'">

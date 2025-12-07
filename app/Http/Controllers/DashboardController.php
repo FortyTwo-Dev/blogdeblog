@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Talk;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -28,4 +29,17 @@ class DashboardController extends Controller
 
         return view('dashboard.blog.show', compact('blog', 'talks'));
     }
+
+    // public function showtalk(Blog $blog, Talk $talk)
+    // {
+    //     $user = Auth::user();
+
+    //     if ($blog->user_id !== $user->id && $blog->id == $talk->blog_id) {
+    //         abort(403, 'Unauthorized action.');
+    //     }
+
+    //     $talk = $talk->get(['id', 'title', 'description']);
+
+    //     return view('dashboard.blog.talk.show', compact('blog', 'talk'));
+    // }
 }

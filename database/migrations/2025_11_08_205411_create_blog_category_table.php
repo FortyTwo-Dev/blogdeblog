@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blog_category', function (Blueprint $table) {
-            $table->foreignUuid("blog_id");
-            $table->foreignUuid("category_id");
+            $table->uuid('category_id')->require();
+            $table->uuid('blog_id')->require();
+            $table->foreign("category_id")->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign("blog_id")->references('id')->on('blogs')->onDelete('cascade');
             $table->timestamps();
         });
     }

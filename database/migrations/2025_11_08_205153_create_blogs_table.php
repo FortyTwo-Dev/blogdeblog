@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string("title", 64);
             $table->string("description", 255);
             $table->string("image_path", 255);
-            $table->foreignId("user_id");
+            $table->string('theme', 42)->default('base');
+            $table->unsignedBigInteger('user_id')->require();
+            $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

@@ -11,6 +11,24 @@
         <form action="{{ route('dashboard.blog.update', $blog) }}" method="POST" class="flex flex-col gap-8" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            
+            <section class="flex flex-col gap-2">
+                <x-ui.label id="theme" :required="true">Theme</x-ui.label>
+                <select name="theme" id="theme" class="input input-primary" required>
+                    <option disabled> Select a theme</option>
+                    @foreach ($themes as $theme)
+                        @if ($theme == $blog->theme)
+                            <option selected :value="$theme">{{$theme}}</option>
+                        @else
+                            <option :value="$theme">{{$theme}}</option>
+                        @endif
+                    @endforeach
+                </select>
+                @error('theme')
+                    <p class="text-xs text-destructive">{{ $message }}</p>
+                @enderror
+            </section>
+
             <section class="flex flex-col gap-2">
                 <x-ui.label id="title" :required="true">Title</x-ui.label>
                 <x-ui.input variant="primary" type="text" id="title" name="title" value="{{ $blog->title }}"></x-ui.input>

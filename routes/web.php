@@ -19,7 +19,6 @@ Route::prefix('dashboard/')->name('dashboard.')->middleware('auth')->group(funct
     
         Route::prefix('blog/{blog}/')->name('talk.')->group(function () {
 
-            Route::get('talk', [App\Http\Controllers\DashboardController::class, 'indextalk'])->name('index');
             Route::get('talk/create', [App\Http\Controllers\TalkController::class, 'create'])->name('create');
             Route::get('talk/{talk}', [App\Http\Controllers\DashboardController::class, 'showtalk'])->name('show');
             Route::get('talk/edit/{talk}', [App\Http\Controllers\TalkController::class, 'edit'])->name('edit');

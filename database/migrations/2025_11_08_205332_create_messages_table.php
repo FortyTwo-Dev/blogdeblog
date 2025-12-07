@@ -15,8 +15,10 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->text("content", 1024);
             $table->string("image_path", 255);
-            $table->foreignUuid("talk_id");
-            $table->foreignId("user_id");
+            $table->uuid('talk_id')->require();
+            $table->foreign("talk_id")->references('id')->on('talks')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->require();
+            $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

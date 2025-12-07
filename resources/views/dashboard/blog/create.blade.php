@@ -12,9 +12,23 @@
         <form action="{{ route('dashboard.blog.store') }}" method="POST" class="flex flex-col gap-8" enctype="multipart/form-data">
             @csrf
             @method('POST')
+
+            <section class="flex flex-col gap-2">
+                <x-ui.label id="theme" :required="true">Theme</x-ui.label>
+                <select name="theme" id="theme" class="input input-primary" required>
+                    <option selected disabled> Select a theme</option>
+                    @foreach ($themes as $theme)
+                        <option :value="$theme">{{$theme}}</option>
+                    @endforeach
+                </select>
+                @error('theme')
+                    <p class="text-xs text-destructive">{{ $message }}</p>
+                @enderror
+            </section>
+
             <section class="flex flex-col gap-2">
                 <x-ui.label id="title" :required="true">Title</x-ui.label>
-                <x-ui.input variant="primary" type="text" id="title" name="title" ></x-ui.input>
+                <x-ui.input variant="primary" type="text" id="title" name="title" required></x-ui.input>
                 @error('title')
                     <p class="text-xs text-destructive">{{ $message }}</p>
                 @enderror

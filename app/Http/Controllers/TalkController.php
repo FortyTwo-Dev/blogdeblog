@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Talk\StoreRequest;
+use App\Http\Requests\Talk\UpdateRequest;
 use App\Models\Blog;
 use App\Models\Talk;
 use Illuminate\Http\Request;
@@ -21,15 +23,15 @@ class TalkController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Blog $blog)
     {
-        return view('dashboard.blog.talk.create');
+        return view('dashboard.blog.talk.create', compact('blog'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Blog $blog)
+    public function store(StoreRequest $request, Blog $blog)
     {
         //$user = Auth::user();
 
@@ -59,13 +61,13 @@ class TalkController extends Controller
      */
     public function edit(Blog $blog, Talk $talk)
     {
-        return view('dashboard.blog.talk.edit', compact('talk'));
+        return view('dashboard.blog.talk.edit', compact('blog','talk'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog, Talk $talk)
+    public function update(UpdateRequest $request, Blog $blog, Talk $talk)
     {
         $data = [
             ...$request->validated(),

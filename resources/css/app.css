@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import './theme/index.css';
 @import './components/ui/index.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -53,7 +52,7 @@
     --white-foreground: var(--black);
 
     --background: oklch(88.837% 0.0001 271.152);
-    --foreground: oklch(53.824% 0.00006 271.152);
+    --foreground: oklch(0% 0 0);
 
     --primary: oklch(60.513% 0.05776 227.69);
     --primary-foreground: var(--white);
@@ -79,3 +78,4 @@
     --rounded-component: 0rem;
     --rounded-card: 0rem;
 }
+@import './theme/index.css';

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string("description", 255);
             $table->text("content");
             $table->string("image_path", 255);
-            $table->foreignUuid("blog_id");
+            $table->uuid('blog_id')->require();
+            $table->foreign("blog_id")->references('id')->on('blogs')->onDelete('cascade');
             $table->softDeletes('deleted_at');
             $table->timestamps();
         });

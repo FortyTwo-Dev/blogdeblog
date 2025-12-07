@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Blog\StoreRequest;
 use App\Http\Requests\Blog\UpdateRequest;
 use App\Models\Blog;
+use \Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -26,7 +27,7 @@ class BlogController extends Controller
     /**
      * Search blogs
      */
-    public function search(\Illuminate\Http\Request $request): View
+    public function search(Request $request): View
     {
         Gate::authorize('viewAny', Blog::class);
         $query = $request->get('search', '');
@@ -43,7 +44,15 @@ class BlogController extends Controller
     {
         Gate::authorize('create', Blog::class);
 
-        return view('dashboard.blog.create');
+        $themes = [
+            'base',
+            'light-blue',
+            'dark-blue',
+            'light-yellow',
+            'dark-yellow'
+        ];
+        
+        return view('dashboard.blog.create', compact('themes'));
     }
 
     /**
@@ -88,7 +97,15 @@ class BlogController extends Controller
     {
         Gate::authorize('update', $blog);
 
-        return view('dashboard.blog.edit', compact('blog'));
+        $themes = [
+            'base',
+            'light-blue',
+            'dark-blue',
+            'light-yellow',
+            'dark-yellow'
+        ];
+
+        return view('dashboard.blog.edit', compact('blog', 'themes'));
     }
 
     /**
