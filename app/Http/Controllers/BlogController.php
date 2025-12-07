@@ -47,9 +47,19 @@ class BlogController extends Controller
         $themes = [
             'base',
             'light-blue',
-            'dark-blue',
             'light-yellow',
-            'dark-yellow'
+            'light-green',
+            'light-pink',
+            'light-purple',
+            'light-orange',
+            'light-red',
+            'dark-blue',
+            'dark-yellow',
+            'dark-green',
+            'dark-pink',
+            'dark-purple',
+            'dark-orange',
+            'dark-red',
         ];
         
         return view('dashboard.blog.create', compact('themes'));
@@ -100,9 +110,19 @@ class BlogController extends Controller
         $themes = [
             'base',
             'light-blue',
-            'dark-blue',
             'light-yellow',
-            'dark-yellow'
+            'light-green',
+            'light-pink',
+            'light-purple',
+            'light-orange',
+            'light-red',
+            'dark-blue',
+            'dark-yellow',
+            'dark-green',
+            'dark-pink',
+            'dark-purple',
+            'dark-orange',
+            'dark-red',
         ];
 
         return view('dashboard.blog.edit', compact('blog', 'themes'));

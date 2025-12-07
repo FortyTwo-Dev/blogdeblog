@@ -23,6 +23,23 @@ class BlogFactory extends Factory
         return [
             'slug' => $slug,
             'title' => $title,
+            'theme' => fake()->randomElement([
+                'base',
+                'light-blue',
+                'light-yellow',
+                'light-green',
+                'light-pink',
+                'light-purple',
+                'light-orange',
+                'light-red',
+                'dark-blue',
+                'dark-yellow',
+                'dark-green',
+                'dark-pink',
+                'dark-purple',
+                'dark-orange',
+                'dark-red'
+            ]),
             'description' => fake()->sentence(12),
             'image_path' => 'empty',
         ];
