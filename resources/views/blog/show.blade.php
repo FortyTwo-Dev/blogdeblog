@@ -1,12 +1,4 @@
 <x-layouts.base title="BlogdeBlog" :theme="$blog->theme">
-    <style>
-        .img-zoom {
-            transition: transform 0.3s ease-out;
-        }
-        .img-zoom:hover {
-            transform: scale(1.1);
-        }
-    </style>
     <section class="flex flex-col mt-6 p-2 w-full max-w-7xl">
         <div class="bg-secondary text-secondary-foreground relative overflow-hidden mb-4 h-80">
             @if ($talks->count() > 0)  
@@ -53,14 +45,14 @@
         </div>
         @if ($talks->count() > 5)
         @foreach ($talks as $talk)
-            <a class="bg-secondary text-secondary-foreground relative overflow-hidden p-8 mb-3 h-50 hover:h-fit">
+            <a class="bg-secondary text-secondary-foreground relative overflow-hidden p-8 mb-3 h-50 hover:h-fit group">
                 <div class="relative z-10">
                     <h2 class="font-semibold text-2xl">{{ $talk->title }}</h2>
                     <p>{{ $talk->description }}</p>
                     <p class="mt-4 whitespace-pre-line text-base/7">{{ $talk->content }}</p>
                 </div>
                 @if ($talk->image_path != "empty")
-                    <img src="{{ $talk->imageUrl() }}" class="absolute inset-0 w-full h-full object-cover img-zoom">
+                    <img src="{{ $talk->imageUrl() }}" class="absolute inset-0 w-full h-full object-cover group-hover:opacity-35">
                 @endif
             </a>
         @endforeach
